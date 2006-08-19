@@ -1,5 +1,16 @@
-Version 0.4
------------
+Version 0.5  2006-08-19
+---------------------------
+
+* Recent mono update
+    - raise library requirements
+    - cleanup EggTrayIcon
+    - fix sqlite bug
+
+* Translations
+    - ru
+
+Version 0.4  2005-07-31
+---------------------------
 
 * iPod support if you've got ipod-sharp installed
   - unplayed podcasts get sent to the iPod, played ones
