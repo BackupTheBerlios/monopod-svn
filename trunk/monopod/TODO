@@ -1,0 +1,50 @@
+TODO
+====
+
+Soonish
+=======
+
+Bugs:
+
+Features:
+* choose to download top N instead of all
+* ipod control -- e.g. only fill N megs
+* podcast window/searcher/player
+* show status in icon
+* Tag MP3s that haven't got any useful tags
+  - should be able to use entagged-sharp for this
+* Drag & drop support
+* Muine plugin
+* Per-cast management (requeue errors, see channel contents)
+
+Long term
+=========
+
+* BLAM! integration
+* Be a panel applet rather than a tray icon
+* Export to GNOME CVS
+* Download .torrent podcasts
+* Download .ra streams
+
+Miscellaneous fixes as noted in the code comments
+=================================================
+
+Extracted automatically below:
+
+
+./Monopod/Cast.cs:270:			// TODO handle response codes
+./Monopod/Channel.cs:227:				// TODO: marshal the other two values across proeprly
+./Monopod/Channel.cs:484:				// TODO: throw a wobbly
+./Monopod/IPod.cs:50:	// TODO: umm, why aren't we just using a Hashtable to store
+./Monopod/IPod.cs:215:					// TODO: make this configurable, ie. fill only X megs
+./Monopod/IPod.cs:222:			// TODO: currently if run out of room when saving, we don't WriteStoredCasts
+./Monopod/Main.cs:75:				// TODO: throw a wobbly
+./Monopod/Main.cs:180:		// TODO: make use AssemblyInfo for version
+./Monopod/Store.cs:95:			// TODO: catch further exceptions here.
+./Monopod/Store.cs:99:		// TODO: catch problems making the cache dir 
+./Monopod/Store.cs:112:				// TODO: throw a wobbly
+./Monopod/StringUtils.cs:57:		//	TODO: Make I18N (don't hardcode English commas)
+./Monopod/StringUtils.cs:87:		//	TODO: Rename this to a verb.
+./Monopod/TrayLib.cs:114:			//TODO: Implement;
+./Monopod/TrayLib.cs:120:			//TODO: Implement;
+./Monopod/WebUtil.cs:43:		// TODO: handle proxy exceptions properly, it doesn't look like the format

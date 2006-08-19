@@ -1,0 +1,54 @@
+Monopod 
+=======
+
+15 June 1005, Edd Dumbill <edd@gnome.org>
+
+Monopod is a simple Podcast client.
+
+It's for people who want to select a few channels, come back later, and
+find the the Podcast MP3s turn up on the hard disk.  People like me.
+
+The user interface will get better in the future, but for now it's based
+on an icon in the system notification area.  Right-click it, select
+"Subscriptions", and off you go.
+
+Downloaded files will turn up in the "Monopod" directory in your home
+directory.  There's a directory per channel, and an M3U file in there
+with a playlist for each channel.
+
+** THIS IS ALPHA SOFTWARE.  EXPECT PROBLEMS **
+
+Please see the TODO file for the development plan for Monopod and before
+sending me mail asking for a new feature.  An important goal for me is
+simplicity, so I won't be implementing anything that makes things
+confusing.
+
+Given how much spare time I have, it would be amazing if I implemented
+much at all!
+
+Keep an eye on my blog at http://usefulinc.com/edd/blog for news about
+further releases.
+
+
+Requirements
+============
+
+Mono 1.1.6 or better. Gtk#, Gnome# and Glade# 1.9.5 or better. 
+You also need SQLite installed.
+
+If you run Ubuntu 5.04 (hoary), you can get these from
+backports.ubuntuforums.org.
+
+
+Known bugs
+==========
+
+SQLite in Mono can't marshal UTF-8 properly.  Therefore subscribing
+to non-Latin channels won't work.  Sorry.  I'm working to get this
+fixed.
+
+Misc
+====
+
+Entagged-sharp is shipped wholesale.  To freshen it, run
+svn export svn://svn.myrealbox.com/source/trunk/entagged-sharp

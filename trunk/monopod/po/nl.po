@@ -1,0 +1,125 @@
+# Dutch translation of Monopod Podcast Client
+# Copyright (C) Edd Dumbill
+# This file is distributed under the same license as the monopod package.
+# Wouter Bolsterlee <uws+gnome@xs4all.nl>, 2005
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-06-22 10:38+0200\n"
+"PO-Revision-Date: 2005-06-22 11:02+0200\n"
+"Last-Translator: Wouter Bolsterlee <uws+gnome@xs4all.nl>\n"
+"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../Monopod/ChannelWindow.cs:86
+msgid "Subscriptions - Monopod Podcast Client"
+msgstr "Inschrijvingen - Monopod Podcast Client"
+
+#: ../Monopod/ChannelWindow.cs:94
+msgid "Channel"
+msgstr "Kanaal"
+
+#: ../Monopod/ChannelWindow.cs:104
+msgid "Subscribed"
+msgstr "Ingeschreven"
+
+#: ../Monopod/ChannelWindow.cs:120
+msgid "Status"
+msgstr "Status"
+
+#: ../Monopod/ChannelWindow.cs:205
+#, csharp-format
+msgid "{1} out of {2} podcast downloaded, {4} unavailable."
+msgid_plural "{1} out of {2} podcasts downloaded, {4} unavailable."
+msgstr[0] "{1} van in totaal {2} podcasts gedownload, {4} niet beschikbaar."
+msgstr[1] "{1} van in totaal {2} podcasts gedownload, {4} niet beschikbaar."
+
+#: ../Monopod/Main.cs:105
+msgid "_Subscriptions"
+msgstr "_Inschrijvingen"
+
+#: ../Monopod/Main.cs:109
+msgid "Show _Podcasts"
+msgstr "Toon _Podcasts"
+
+#: ../Monopod/Main.cs:113
+msgid "_About"
+msgstr "I_nfo"
+
+#: ../Monopod/Main.cs:116
+msgid "_Quit"
+msgstr "A_fsluiten"
+
+#: ../Monopod/Main.cs:156
+msgid "Monopod"
+msgstr "Monopod"
+
+#: ../Monopod/Main.cs:158
+msgid "Copyright Â© 2005 Edd Dumbill"
+msgstr "Copyright Â© 2005 Edd Dumbill"
+
+#: ../Monopod/Main.cs:159
+msgid "A simple podcast client."
+msgstr "Een simpele podcast client."
+
+#: ../Monopod/Main.cs:162 ../Monopod/Main.cs:163
+msgid "translator-credits"
+msgstr "translator-credits"
+
+#: ../Monopod/StringUtils.cs:29
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: ../Monopod/StringUtils.cs:32
+#, csharp-format
+msgid "{0} and others"
+msgstr "{0} en anderen"
+
+#: ../Monopod/StringUtils.cs:35
+#, csharp-format
+msgid "{0} and {1}"
+msgstr "{0} en {1}"
+
+#: ../Monopod/AddWindow.glade.h:1
+msgid ""
+"All\n"
+"Subscribed\n"
+"Errors"
+msgstr ""
+"Alles\n"
+"Aangemeld\n"
+"Mislukt"
+
+#: ../Monopod/AddWindow.glade.h:4
+msgid "_Search:"
+msgstr "_Zoeken:"
+
+#: ../Monopod/NewChannel.glade.h:1
+msgid "<big><b>Add Channel</b></big>"
+msgstr "<big><b>Kanaal toevoegen</b></big>"
+
+#: ../Monopod/NewChannel.glade.h:2
+msgid "Add Channel - Monopod Podcast Client"
+msgstr "Kanaal toevoegen - Monopod Podcast Client"
+
+#: ../Monopod/NewChannel.glade.h:3
+msgid "Enter the location of the podcast channel's RSS 2.0 file"
+msgstr "Geef de lokatie van het RSS 2.0 bestand voor dit podcast kanaal."
+
+#: ../Monopod/NewChannel.glade.h:4
+msgid "_URL:"
+msgstr "_URL:"
+
+#: ../data/monopod.desktop.in.h:1
+msgid "Download Podcast Audio"
+msgstr "Podcast Audio downloaden"
+
+#: ../data/monopod.desktop.in.h:2
+msgid "Monopod Podcast Client"
+msgstr "Monopod Podcast Client"

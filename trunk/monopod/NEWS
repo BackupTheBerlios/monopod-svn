@@ -1,0 +1,42 @@
+Version 0.4
+-----------
+
+* iPod support if you've got ipod-sharp installed
+  - unplayed podcasts get sent to the iPod, played ones
+    get removed.
+  - "Recent podcasts" playlist for quick access to podcasts.
+  - caution: this stuff is experimental!
+  - you need ipod-sharp and deps from Mono SVN to get this going
+
+* New 'recent.m3u' playlist contains 50 most recent downloads
+
+* Translations
+  - nl (Wouter Bolsterlee)
+
+* Bug fixes
+  - Cleanup for schema creation from Martin Jansen
+  - Random HTML tags stripped from description
+  - Don't re-download every podcast when RSS is refreshed
+
+Version 0.3 2005-06-21
+----------------------
+
+* GNOME Proxy support
+* I18N-enabled sources
+* Adds 'Show Podcasts' menu item
+* Adds launcher to Applications menu (.desktop file)
+* Adds a few more default channels, from KCRW
+
+* Fixed bugs:
+  - MP3s downloaded to correct directory now
+  - Refetch RSS on subscribe even if previous subscribed
+
+Version 0.2 2005-06-15
+----------------------
+
+* Brown paper bag bugfix
+
+Version 0.1 2005-06-14
+----------------------
+
+* Initial release

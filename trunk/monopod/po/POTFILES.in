@@ -1,0 +1,19 @@
+[encoding: UTF-8]
+Monopod/AddChannelWindow.cs
+Monopod/AssemblyInfo.cs.in
+Monopod/Cast.cs
+Monopod/Channel.cs
+Monopod/ChannelWindow.cs
+Monopod/Defines.cs.in
+Monopod/ItemList.cs
+Monopod/Main.cs
+Monopod/MyWindow.cs
+Monopod/SearchEntry.cs
+Monopod/SqlUtil.cs
+Monopod/Store.cs
+Monopod/StringUtils.cs
+Monopod/TrayLib.cs
+Monopod/WebUtil.cs
+Monopod/AddWindow.glade
+Monopod/NewChannel.glade
+data/monopod.desktop.in

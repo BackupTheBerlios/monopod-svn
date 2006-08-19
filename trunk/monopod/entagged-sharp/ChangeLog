@@ -1,0 +1,28 @@
+2005-06-29 Aaron Bockover <aaron@aaronbock.net>
+
+	* AudioFileWrapper.cs: Length is now Duration, added some exception
+	catching and default values to the get accessors for safer, easier use
+	* entagged-sharp: Added M4a code to MonoDevelop project
+
+2005-06-28 Aaron Bockover <aaron@aaronbock.net>
+
+	* AudioFileWrapper.cs: Friendlier API wrapper to the entagged API
+	Applications using entagged-sharp should USE THIS CLASS!
+	* AudioFile.cs: EncodingInfo public get accessor added for exposure
+	to AudioFileWrapper
+
+	* entagged-sharp: Build system updated, GAC support removed, install
+	warning added to `make install'
+
+	* entagged-sharp: Build system updated
+	* entagged-sharp: Created MonoDevelop project
+	* entagged-sharp: Removed ASF support (hopefully temporarily) due to
+	licensing restrictions
+
+2005-06-27 Aaron Bockover <aaron@aaronbock.net>
+
+	* entagged-sharp: Imported to Mono SVN
+	* entagged-sharp: Re-licensed under MIT X11 License
+	* entagged-sharp: Build system updated
+	* entagged-sharp: Sources pulled out of SourceForge CVS
+

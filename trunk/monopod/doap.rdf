@@ -1,0 +1,48 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns="http://usefulinc.com/ns/doap#">
+
+<!--
+	This DOAP file is derived from a template, 
+	completed when 'make dist' is run.
+-->
+
+<Project>
+	<name>Monopod Podcast Client</name>
+	<shortname>monopod</shortname>
+	<homepage rdf:resource="http://usefulinc.com/software/monopod" />
+	<created>2005-06-04</created>
+
+	<shortdesc xml:lang="en">
+          Simple podcast client.
+	</shortdesc>
+
+	<description xml:lang="en">
+          Monopod is a simple Podcast client.  
+          It's for people who want to select a few channels, come back
+          later, and find the the Podcast MP3s turn up on the hard disk 
+          or iPod.
+	</description>
+
+	<maintainer>
+		<foaf:Person>
+			<foaf:name>Edd Dumbill</foaf:name>
+			<foaf:homepage rdf:resource="http://usefulinc.com/edd/" />
+		</foaf:Person>
+	</maintainer>
+
+	<release>
+		<Version>
+			<name>unstable</name>
+			<created>2005-07-31</created>
+			<revision>0.4</revision>
+		</Version>
+	</release>
+
+	<license rdf:resource="http://usefulinc.com/doap/licenses/GPL" />
+
+    <bug-database rdf:resource="mailto:edd@gnome.org" />
+
+</Project>
+
+</rdf:RDF>
