@@ -139,8 +139,8 @@ public class Store : IEnumerable, IEnumerator {
 		get {
 			IDbCommand cmd = connection.CreateCommand ();
 			cmd.CommandText = "SELECT COUNT(*) FROM channel";
-			string n = (string) cmd.ExecuteScalar ();
-			return Int32.Parse (n);
+			object n = cmd.ExecuteScalar ();
+			return Int32.Parse(n.ToString());
 		}
 	}
 	
@@ -171,7 +171,7 @@ public class Store : IEnumerable, IEnumerator {
 			itereader = null;
 			return false;
 		}
-		int i = Int32.Parse ((string) itereader[0]);
+		int i = (int)itereader[0];
 		iterchan = new Channel (this, i);
 		return true;
 	}
@@ -210,7 +210,7 @@ public class Store : IEnumerable, IEnumerator {
 			IDataReader reader = cmd.ExecuteReader ();
 			if (reader != null) {
 				while (reader.Read ()) {
-					ids.Add (Int32.Parse ((string) reader[0]));
+					ids.Add (Int32.Parse (reader[0].ToString()));
 					// System.Console.WriteLine("Result channel {0}", (string)reader[0]);
 				}
 			}
@@ -234,7 +234,7 @@ public class Store : IEnumerable, IEnumerator {
 			cmd.CommandText = sql;
 			IDataReader reader = cmd.ExecuteReader ();
 			if (reader.Read ()) {
-				ret = GetChannel (Int32.Parse ((string) reader[0]));
+				ret = GetChannel (Int32.Parse (reader[0].ToString()));
 			}
 		}
 		return ret;
@@ -247,15 +247,19 @@ public class Store : IEnumerable, IEnumerator {
 	
 		lock (this) {
 			IDbCommand dbcmd = connection.CreateCommand ();
-			string sql = String.Format (@"select cast.id, channel.id from cast, channel where
-				cast.fetched = 0 and cast.error = '' and channel.subscribed = 1 and channel.id = cast.channel_id
-				order by cast.id limit 1"
-				);
+			// CAST is operator in sqlite now, so be careful
+			string sql = @"select 'cast'.id, channel.id
+			        from cast, channel where
+				'cast'.fetched = 0 and 
+				'cast'.error = '' and 
+				channel.subscribed = 1 
+				and channel.id = 'cast'.channel_id
+				order by 'cast'.id limit 1";
 			dbcmd.CommandText = sql;
 			IDataReader reader = dbcmd.ExecuteReader ();
 			if (reader.Read ()) {
-				theid = Int32.Parse ((string) reader[0]);
-				thechan = Int32.Parse ((string) reader[1]);
+				theid = Int32.Parse (reader[0].ToString());
+				thechan = Int32.Parse (reader[1].ToString());
 			}
 			reader.Close ();
 		}
@@ -526,8 +530,8 @@ public class Store : IEnumerable, IEnumerator {
 
 			IDataReader reader = dbcmd.ExecuteReader ();
 			while (reader.Read ()) {
-				id = Int32.Parse ((string) reader[0]);
-				chanid = Int32.Parse ((string) reader[1]);
+				id = Int32.Parse (reader[0].ToString());
+				chanid = Int32.Parse (reader[1].ToString());
 				Cast k = GetChannel (chanid).GetCast (id);
 				res.Add (k);				
 			}

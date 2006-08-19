@@ -21,8 +21,7 @@ using System;
 using System.IO;
 using Gtk;
 using GLib;
-using Gnome;
-using Mono.Posix;
+using Mono.Unix;
 
 class MainClass
 {
@@ -143,7 +142,7 @@ class MainClass
 	      		OnShowPodcasts (o, (EventArgs) args);
 	      		break;
 			case 3:
-	      		popupMenu.Popup(null, null, null, IntPtr.Zero, args.Event.Button,
+	      		popupMenu.Popup(null, null, null, args.Event.Button,
 	      			args.Event.Time);
 	      		break;
 
@@ -176,20 +175,19 @@ class MainClass
 	
 	private void OnAbout (object o, EventArgs args)
 	{
-		Gnome.About about;		
 		// TODO: make use AssemblyInfo for version
-		about = new Gnome.About (
-			Catalog.GetString ("Monopod"),
-			Defines.VERSION,
-			Catalog.GetString ("Copyright © 2005 Edd Dumbill"),
-			Catalog.GetString ("A simple podcast client."), 
-			new string[] {"Edd Dumbill <edd@gnome.org>",
-				"James Willcox <snorp@snorp.net>"},
-			new string[] {},
-			(Catalog.GetString ("translator-credits") ==
-				"translator-credits" ? null : 
-				Catalog.GetString ("translator-credits")),
-			program_pixbuf48);
+		AboutDialog about = new Gtk.AboutDialog();
+		
+		about.Name = Catalog.GetString ("Monopod");
+		about.Version = Defines.VERSION;
+		about.Copyright = ("Copyright © 2005 Edd Dumbill");
+		about.Comments = Catalog.GetString ("A simple podcast client.");
+		about.Authors = new string[] {"Edd Dumbill <edd@gnome.org>",
+ 					      "James Willcox <snorp@snorp.net>"};
+		about.Documenters = new string[] {};
+		about.TranslatorCredits = (Catalog.GetString ("translator-credits") ==
+				           "translator-credits" ? null : 
+				           Catalog.GetString ("translator-credits"));
 		about.Icon = program_pixbuf16;
 		about.Show ();
 	}

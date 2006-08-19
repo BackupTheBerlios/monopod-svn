@@ -219,9 +219,9 @@ public class Channel : IEnumerator, IEnumerable {
 				Title = (string) reader[2];
 				Description = (string) reader[3];
 				ImageUrl = (string) reader[4];
-				long ticks = Int64.Parse ((string) reader[5]);
+				long ticks = (long)reader[5];
 				_fetched = new DateTime (ticks);
-				_subscribed = (bool) ((string) reader[6] != "0" );
+				_subscribed = (bool) ((int)reader[6] != 0);
 				_category = (string) reader[7];
 				_error = (string) reader[8];
 				// TODO: marshal the other two values across proeprly
@@ -242,7 +242,7 @@ public class Channel : IEnumerator, IEnumerable {
 			dbcmd.CommandText = sql;
 			IDataReader reader = dbcmd.ExecuteReader ();
 			if (reader.Read ()) {
-				theid = Int32.Parse ((string) reader[0]);
+				theid = Int32.Parse (reader[0].ToString());
 			}	 
 			reader.Close ();
 		}
@@ -261,7 +261,7 @@ public class Channel : IEnumerator, IEnumerable {
 			dbcmd.CommandText = sql;
 			IDataReader reader = dbcmd.ExecuteReader ();
 			if (reader.Read ()) {
-				num = Int32.Parse ((string) reader[0]);
+				num = Int32.Parse (reader[0].ToString());
 			}	 
 			reader.Close ();
 		}
@@ -280,7 +280,7 @@ public class Channel : IEnumerator, IEnumerable {
 			dbcmd.CommandText = sql;
 			IDataReader reader = dbcmd.ExecuteReader ();
 			if (reader.Read ()) {
-				num = Int32.Parse ((string) reader[0]);
+				num = Int32.Parse (reader[0].ToString());
 			}	 
 			reader.Close ();
 		}
@@ -299,7 +299,7 @@ public class Channel : IEnumerator, IEnumerable {
 			dbcmd.CommandText = sql;
 			IDataReader reader = dbcmd.ExecuteReader ();
 			if (reader.Read ()) {
-				num = Int32.Parse ((string) reader[0]);
+				num = Int32.Parse (reader[0].ToString());
 			}	 
 			reader.Close ();
 		}
@@ -466,7 +466,7 @@ public class Channel : IEnumerator, IEnumerable {
 			itereader = null;
 			return false;
 		}
-		int i = Int32.Parse ((string) itereader[0]);
+		int i = Int32.Parse (itereader[0].ToString());
 		itercast = new Cast (this, i);
 		return true;
 	}
@@ -506,7 +506,7 @@ public class Channel : IEnumerator, IEnumerable {
 			System.Console.WriteLine(sql);
 			IDataReader reader = dbcmd.ExecuteReader ();
 			while (reader.Read ()) {
-				ids.Add (Int32.Parse ((string) reader[0]));
+				ids.Add (Int32.Parse (reader[0].ToString()));
 			}
 			reader.Close ();
 		}

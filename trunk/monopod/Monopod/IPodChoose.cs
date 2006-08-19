@@ -96,7 +96,7 @@ public class IPodChooseWindow : Window
 		window.Sensitive = true;
 	}
 	
-	private void OnWindowResponse (object o, ResponseArgs args)
+	public void OnWindowResponse (object o, ResponseArgs args)
 	{
 		switch ((int) args.ResponseId) {
 			case (int) ResponseType.DeleteEvent:
@@ -109,7 +109,7 @@ public class IPodChooseWindow : Window
 		}
 	}
 	
-	private void OnWindowDeleteEvent (object o, DeleteEventArgs args)
+	public void OnWindowDeleteEvent (object o, DeleteEventArgs args)
 	{
 	    args.RetVal = true;
 	}

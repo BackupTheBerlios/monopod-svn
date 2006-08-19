@@ -11,23 +11,25 @@ namespace Egg
 {
 	public class TrayIcon : Plug
 	{
-		int stamp;
-		Orientation orientation;
+		// int stamp;
+		// Orientation orientation;
 		
 		int selection_atom;
-		int manager_atom;
 		int system_tray_opcode_atom;
-		int orientation_atom;
 		IntPtr manager_window;
-		FilterFunc filter;
+
+		// int manager_atom;
+		// int orientation_atom;
+		// FilterFunc filter;
 		
 		public TrayIcon (string name)
 		{
 			Title = name;
-			stamp = 1;
-			orientation = Orientation.Horizontal;
 			AddEvents ((int)EventMask.PropertyChangeMask);
-			filter = new FilterFunc (ManagerFilter);
+
+			// stamp = 1;
+			// orientation = Orientation.Horizontal;
+			// filter = new FilterFunc (ManagerFilter);
 		}
  
 		protected override void OnRealized ()
@@ -36,11 +38,14 @@ namespace Egg
 			Display display = Screen.Display;
 			IntPtr xdisplay = gdk_x11_display_get_xdisplay (display.Handle);
 			selection_atom = XInternAtom (xdisplay, "_NET_SYSTEM_TRAY_S" + Screen.Number.ToString (), false);
-			manager_atom = XInternAtom (xdisplay, "MANAGER", false);
 			system_tray_opcode_atom = XInternAtom (xdisplay, "_NET_SYSTEM_TRAY_OPCODE", false);
-			orientation_atom = XInternAtom (xdisplay, "_NET_SYSTEM_TRAY_ORIENTATION", false);
+
+			// orientation_atom = XInternAtom (xdisplay, "_NET_SYSTEM_TRAY_ORIENTATION", false);
+			// manager_atom = XInternAtom (xdisplay, "MANAGER", false);
+
 			UpdateManagerWindow ();
-			//Screen.RootWindow.AddFilter (filter);
+
+			// Screen.RootWindow.AddFilter (filter);
 		}
  
 		protected override void OnUnrealized ()
@@ -108,12 +113,13 @@ namespace Egg
 			XSendEvent (display, manager_window, false, EventMask.NoEventMask, ref ev);
 			gdk_error_trap_pop ();
 		}
- 
-		private FilterReturn ManagerFilter (IntPtr xevent, Event evnt)
-		{
-			//TODO: Implement;
-			return FilterReturn.Continue;
-		}
+
+		/* TODO: Implement 
+		 * private FilterReturn ManagerFilter (IntPtr xevent, Event evnt)
+		 * {
+		 *	 return FilterReturn.Continue;
+		 * }
+		 **/
  
 		private void GetOrientationProperty ()
 		{

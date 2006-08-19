@@ -1,5 +1,20 @@
 2006-08-19  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
 
+	* Monopod/Cast.cs:
+	* Monopod/Channel.cs:
+	* Monopod/ChannelWindow.cs:
+	* Monopod/IPodChoose.cs:
+	* Monopod/IPod.cs:
+	* Monopod/Main.cs:
+	* Monopod/Makefile.am:
+	* Monopod/Store.cs:
+	* Monopod/StringUtils.cs:
+	* Monopod/TrayLib.cs:
+	
+	Update to build with recent mono and sqlite3.
+
+2006-08-19  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
+
 	* configure.in: Add ru to ALL_LINGUAS.
 
 2006-08-19  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>

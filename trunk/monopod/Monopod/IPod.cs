@@ -19,7 +19,7 @@
 
 #if USING_IPOD
 
-using Mono.Posix;
+using Mono.Unix;
 using IPod;
 using System;
 using System.Collections; 

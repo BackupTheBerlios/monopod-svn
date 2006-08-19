@@ -26,18 +26,20 @@ using System.Collections;
 using Mono.Data.SqliteClient;
 
 public class Cast {
-    public static string CreationSQL = @"
+
+    // CAST is operator in sqlite now, so be careful, sadly we can't replace it due to backward compatibility
+    public static string CreationSQL = @"    
     	CREATE TABLE cast (
-    		id			integer not null primary key,
+    		id		integer not null primary key,
     		channel_id	integer not null,
-    		url			text,
-    		title       text,
+    		url		text,
+    		title       	text,
     		description	text,
     		date		text,
     		fetched		numeric not null default 0,
     		category	text,
-    		type        string,
-    		length      integer not null,
+    		type        	string,
+    		length      	integer not null,
     		error		string default ''
     	)";
     public Channel MyChannel;
@@ -127,7 +129,7 @@ public class Cast {
 			dbcmd.CommandText = sql;
 			IDataReader reader = dbcmd.ExecuteReader ();
 			if (reader.Read ()) {
-				theid = Int32.Parse ((string) reader[0]);
+				theid = Int32.Parse (reader[0].ToString());
 			}	 
 			reader.Close ();
 		}
@@ -228,8 +230,8 @@ public class Cast {
 				Title = (string) reader[1];
 				Description = (string) reader[2];
 				Type = (string) reader[3];
-				Length = Int32.Parse ((string) reader[4]);
-				_fetched = new DateTime (Int64.Parse ((string) reader[5]));
+				Length = Int32.Parse (reader[4].ToString());
+				_fetched = new DateTime (Int64.Parse (reader[5].ToString()));
 				_error = (string) reader[6];
 			}
 			reader.Close ();

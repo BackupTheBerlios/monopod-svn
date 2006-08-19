@@ -37,10 +37,14 @@ monopod_embedded = $(foreach res,$(monopod_resources),\
 	$(addprefix -resource:,$(res)),$(notdir $(res)))
 
 Monopod.exe: $(monopod_build_sources) $(monopod_resources) $(entagged_dll)
-	$(MCS) $(GTKSHARP_LIBS) $(GLADESHARP_LIBS) \
-	$(GCONFSHARP_LIBS) $(IPODSHARP_LIBS) \
+	$(MCS) \
+	$(GTKSHARP_LIBS) \
+	$(GLADESHARP_LIBS) \
+	$(GCONFSHARP_LIBS) \
+	$(IPODSHARP_LIBS) \
 	-r:$(entagged_dll) \
-	$(GNOMESHARP_LIBS) $(OTHERLIBS) $(monopod_embedded) \
+	$(OTHERLIBS) \
+	$(monopod_embedded) \
 	$(MCS_FLAGS) \
 	 -out:$@ \
 	$(monopod_build_sources)

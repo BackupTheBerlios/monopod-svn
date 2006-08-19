@@ -21,7 +21,7 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 
-using Mono.Posix;
+using Mono.Unix;
 
 	public sealed class StringUtils
 	{

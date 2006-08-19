@@ -24,7 +24,7 @@
 using System;
 
 using Gtk;
-using Mono.Posix;
+using Mono.Unix;
 
 public class CellRendererText : Gtk.CellRendererText
 {
@@ -261,7 +261,7 @@ public class ChannelWindow : Window
 	}
 	
 	// Handlers
-	private void OnWindowResponse (object o, ResponseArgs args)
+	public void OnWindowResponse (object o, ResponseArgs args)
 	{
 		switch ((int) args.ResponseId) {
 			case (int) ResponseType.DeleteEvent:
@@ -352,7 +352,7 @@ public class ChannelWindow : Window
 		}
 	}
 	
-	private void OnWindowDeleteEvent (object o, DeleteEventArgs args)
+	public void OnWindowDeleteEvent (object o, DeleteEventArgs args)
 	{
 	    args.RetVal = true;
 	}
@@ -362,7 +362,7 @@ public class ChannelWindow : Window
 	    args.RetVal = false;
 	}
 
-	private void OnShowboxChanged (object o, EventArgs args)
+	public void OnShowboxChanged (object o, EventArgs args)
 	{
 	    if (search_timeout_id > 0)
 			GLib.Source.Remove (search_timeout_id);
