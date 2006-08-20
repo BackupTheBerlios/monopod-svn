@@ -93,6 +93,7 @@ public class Store : IEnumerable, IEnumerator {
 			result.Close ();
 		} catch (Exception e) {
 			// TODO: catch further exceptions here.
+			System.Console.WriteLine ("Error executing reader: {0}", e.ToString ());
 		}
 		_cachedir = cachedir;
 		InitializeCache ();

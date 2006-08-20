@@ -45,7 +45,6 @@ public class IPodChooseWindow : Window
 		combo = new DeviceCombo ();
 		combo.Changed += OnDeviceChanged;
 		combo_container.PackStart (combo, true, true, 0);
-		refresh_button.Clicked += OnRefreshClicked;
 		update_button.Clicked += OnUpdateClicked;
 		window.Icon = MainClass.program_pixbuf48;
 		notify = new ThreadNotify (new ReadyEvent (OnNotify));
@@ -71,10 +70,6 @@ public class IPodChooseWindow : Window
 		SetDevice ();
 	}
 
-	private void OnRefreshClicked (object o, EventArgs args) {
-		combo.Refresh ();
-	}
-	
 	private void OnUpdateClicked (object o, EventArgs args)
 	{
 		if (combo.ActiveDevice != null) {
