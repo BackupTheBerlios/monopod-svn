@@ -79,12 +79,31 @@ PKG_CHECK_MODULES(GCONFSHARP, gconf-sharp-2.0 >= $GCONFSHARP_REQUIRED_VERSION)
 AC_SUBST(GCONFSHARP_LIBS)
 
 dnl ipod-sharp
-IPODSHARP_REQUIRED_VERSION=0.5.11
-PKG_CHECK_MODULES(IPODSHARP, ipod-sharp >= $IPODSHARP_REQUIRED_VERSION ipod-sharp-ui,
-	USING_IPOD='true'; MCS_FLAGS="$MCS_FLAGS -define:USING_IPOD",
-	[USING_IPOD='false'; echo Not including ipod support.])
-AC_SUBST(IPODSHARP_LIBS)
-AC_SUBST(USING_IPOD)
+
+dnl configure options
+AC_ARG_ENABLE(ipod, AC_HELP_STRING([--enable-ipod], [Enable iPod support]), , enable_ipod="yes")
+enable_ipodsharp="${enable_ipod}"
+
+dnl DBus devel detect .so version for dll maps
+PKG_CHECK_MODULES(DBUS, dbus-1 >= 0.60, dbus60=yes, dbus60=no)
+if test "x$dbus60" = "xyes"; then
+	DBUS_SOVERSION=2
+else
+	DBUS_SOVERSION=1
+fi
+AC_SUBST(DBUS_SOVERSION)
+
+IPODSHARP_REQUIRED=0.5.15
+PKG_CHECK_MODULES(IPODSHARP,
+	ipod-sharp >= $IPODSHARP_REQUIRED ipod-sharp-ui >= $IPODSHARP_REQUIRED,
+	enable_ipodsharp="$enable_ipodsharp", enable_ipodsharp=no)
+
+if test "x$enable_ipodsharp" = "xyes"; then
+	IPODSHARP_ASSEMBLIES="`$PKG_CONFIG --variable=Libraries ipod-sharp` `$PKG_CONFIG --variable=Libraries ipod-sharp-ui`"
+	AC_SUBST(IPODSHARP_ASSEMBLIES)
+	AC_SUBST(IPODSHARP_LIBS)
+fi
+AM_CONDITIONAL(ENABLE_IPOD, test "x$enable_ipodsharp" = "xyes")
 
 dnl i18n
 ALL_LINGUAS="nl ru"
@@ -101,6 +120,7 @@ Monopod/Makefile
 Monopod/AssemblyInfo.cs
 Monopod/Defines.cs
 Monopod/monopod
+Monopod/ipod-sharp.dll.config
 data/Makefile
 po/Makefile.in
 ])

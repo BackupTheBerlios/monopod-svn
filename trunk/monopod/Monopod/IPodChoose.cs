@@ -34,7 +34,6 @@ public class IPodChooseWindow : Window
 	[Glade.Widget] private Dialog window;
 	[Glade.Widget] private HBox combo_container;
 	[Glade.Widget] private Button update_button;
-	[Glade.Widget] private Button refresh_button;
 
 	public IPodChooseWindow (Store s) : base (IntPtr.Zero)
 	{

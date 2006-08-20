@@ -36,6 +36,15 @@ monopod_resources = $(srcdir)/podcast.png $(srcdir)/AddWindow.glade \
 monopod_embedded = $(foreach res,$(monopod_resources),\
 	$(addprefix -resource:,$(res)),$(notdir $(res)))
 
+if ENABLE_IPOD
+
+ipodsharpconfigdir = $(pkglibdir)
+ipodsharpconfig_SCRIPTS = ipod-sharp.dll.config
+
+IPODSHARP_LIBS += -define:USING_IPOD
+
+endif
+
 Monopod.exe: $(monopod_build_sources) $(monopod_resources) $(entagged_dll)
 	$(MCS) \
 	$(GTKSHARP_LIBS) \
@@ -48,4 +57,16 @@ Monopod.exe: $(monopod_build_sources) $(monopod_resources) $(entagged_dll)
 	$(MCS_FLAGS) \
 	 -out:$@ \
 	$(monopod_build_sources)
+
+
+install-data-hook:
+	for ASM in $(IPODSHARP_ASSEMBLIES); do \
+		$(INSTALL) -m 0755 $$ASM $(DESTDIR)/$(pkglibdir); \
+	done;
+	
+uninstall-hook:
+	for ASM in $(IPODSHARP_ASSEMBLIES); do \
+		rm -f $(DESTDIR)/$(pkglibdir)/`basename $$ASM`; \
+	done;
+
 

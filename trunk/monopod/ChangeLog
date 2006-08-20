@@ -1,3 +1,11 @@
+2006-08-21  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
+
+	* configure.ac:
+	* Monopod/Makefile.am:
+	* Monopod/ipod-sharp.dll.config: 
+
+	Work around buggy ipod-sharp installation.
+
 2006-08-20  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
 
 	* IPodWindow.glade:
