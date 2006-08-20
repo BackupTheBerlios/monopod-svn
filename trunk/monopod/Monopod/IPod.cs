@@ -162,12 +162,10 @@ public class IPodSync
 					song.Title = k.Title;
 					song.Genre = Catalog.GetString ("Podcast");
 					song.Comment = k.Description;
-					System.Console.WriteLine ("Song {0} Duration {1}", k.Title, wrap.Duration);
-					song.Length = wrap.Duration * 1000;
+					song.Duration = TimeSpan.FromMilliseconds (wrap.Duration * 1000);
 					song.Year = wrap.Year;
 					song.TrackNumber = wrap.TrackNumber;
-					// song.TotalTracks = wrap.TrackCount;
-					song.Filename = k.LocalName;
+					song.FileName = k.LocalName;
 					
 					stored_casts.Add (k.ID, song.Id);
 					p.InsertSong (0, song);
