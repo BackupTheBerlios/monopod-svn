@@ -75,10 +75,13 @@ class MainClass
 			}
 		}	
 		store = new Store (Path.Combine (userdir, ".monopod.db"), userdir);
-		if (store.NumberOfChannels == 0)
+		if (store.NumberOfChannels == 0) {
 			store.AddDefaultChannels ();
-
-		channels = new ChannelWindow (store);
+			channels = new ChannelWindow (store);
+			channels.Show ();
+		} else {
+			channels = new ChannelWindow (store);
+		}
 #if USING_IPOD
 		ipodwindow = new IPodChooseWindow (store);
 #endif		
