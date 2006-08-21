@@ -129,7 +129,7 @@ public class Cast {
 			dbcmd.CommandText = sql;
 			IDataReader reader = dbcmd.ExecuteReader ();
 			if (reader.Read ()) {
-				theid = Int32.Parse (reader[0].ToString());
+				theid = reader.GetInt32(0);
 			}	 
 			reader.Close ();
 		}
@@ -226,13 +226,13 @@ public class Cast {
 			dbcmd.CommandText = sql;
 			reader = dbcmd.ExecuteReader ();
 			if (reader.Read ()) {
-				Url = (string) reader[0];
-				Title = (string) reader[1];
-				Description = (string) reader[2];
-				Type = (string) reader[3];
-				Length = Int32.Parse (reader[4].ToString());
-				_fetched = new DateTime (Int64.Parse (reader[5].ToString()));
-				_error = (string) reader[6];
+				Url = reader.GetString(0);
+				Title = reader.GetString(1);
+				Description = reader.GetString(2);
+				Type = reader.GetString(3);
+				Length = reader.GetInt32(4);
+				_fetched = new DateTime (reader.GetInt64(5));
+				_error = reader.GetString(6);
 			}
 			reader.Close ();
 		}

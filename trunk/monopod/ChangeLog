@@ -1,5 +1,14 @@
 2006-08-21  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
 
+	* Monopod/Channel.cs:
+	* Monopod/Cast.cs:
+	* Monopod/Store.cs: 
+
+	Use reader methods instead of dumb string parsing.
+	Fixes type conversion exeptions.
+
+2006-08-21  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
+
 	* configure.ac:
 	* Monopod/Makefile.am:
 	* Monopod/ipod-sharp.dll.config: 

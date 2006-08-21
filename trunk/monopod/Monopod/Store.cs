@@ -172,7 +172,7 @@ public class Store : IEnumerable, IEnumerator {
 			itereader = null;
 			return false;
 		}
-		int i = (int)itereader[0];
+		int i = itereader.GetInt32 (0);
 		iterchan = new Channel (this, i);
 		return true;
 	}
@@ -211,7 +211,7 @@ public class Store : IEnumerable, IEnumerator {
 			IDataReader reader = cmd.ExecuteReader ();
 			if (reader != null) {
 				while (reader.Read ()) {
-					ids.Add (Int32.Parse (reader[0].ToString()));
+					ids.Add (reader.GetInt32 (0));
 					// System.Console.WriteLine("Result channel {0}", (string)reader[0]);
 				}
 			}
@@ -235,7 +235,7 @@ public class Store : IEnumerable, IEnumerator {
 			cmd.CommandText = sql;
 			IDataReader reader = cmd.ExecuteReader ();
 			if (reader.Read ()) {
-				ret = GetChannel (Int32.Parse (reader[0].ToString()));
+				ret = GetChannel (reader.GetInt32 (0));
 			}
 		}
 		return ret;
@@ -259,8 +259,8 @@ public class Store : IEnumerable, IEnumerator {
 			dbcmd.CommandText = sql;
 			IDataReader reader = dbcmd.ExecuteReader ();
 			if (reader.Read ()) {
-				theid = Int32.Parse (reader[0].ToString());
-				thechan = Int32.Parse (reader[1].ToString());
+				theid = reader.GetInt32 (0);
+				thechan = reader.GetInt32 (1);
 			}
 			reader.Close ();
 		}
@@ -531,8 +531,8 @@ public class Store : IEnumerable, IEnumerator {
 
 			IDataReader reader = dbcmd.ExecuteReader ();
 			while (reader.Read ()) {
-				id = Int32.Parse (reader[0].ToString());
-				chanid = Int32.Parse (reader[1].ToString());
+				id = reader.GetInt32 (0);
+				chanid = reader.GetInt32 (1);
 				Cast k = GetChannel (chanid).GetCast (id);
 				res.Add (k);				
 			}
