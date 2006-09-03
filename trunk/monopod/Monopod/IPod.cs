@@ -222,7 +222,7 @@ public class IPodSync
 			// managed to save.
 			WriteStoredCasts ();
 		} catch (IPod.InsufficientSpaceException ie) {
-			System.Console.WriteLine ("Not enough room");
+			System.Console.WriteLine ("Not enough room {0}", ie);
 			GLib.Idle.Add (ShowIPodFull);
 		} catch (Exception e) {
 			System.Console.WriteLine ("Exception during syncing: {0}", e);		

@@ -175,6 +175,13 @@ class MainClass
 	{
 		Application.Quit(); // quits the application when the users clicks the popup menu
 	}
+
+	private void OnAboutResponse (object o, ResponseArgs args)
+	{
+		AboutDialog dialog = (AboutDialog) o;
+		
+		dialog.Destroy ();
+	}
 	
 	private void OnAbout (object o, EventArgs args)
 	{
@@ -192,7 +199,9 @@ class MainClass
 				           "translator-credits" ? null : 
 				           Catalog.GetString ("translator-credits"));
 		about.Icon = program_pixbuf16;
+		about.Logo = program_pixbuf;
 		about.Show ();
+		about.Response += new ResponseHandler (this.OnAboutResponse);
 	}
 
 	private static void OnDieEvent (object o, EventArgs args)
