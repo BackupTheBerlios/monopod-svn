@@ -1,5 +1,11 @@
 2006-09-28  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
 
+	* Monopod/Monopod.exe.config, Monopod/Makefile.am:
+	
+	Fixes bug #8899 by adding dll mapping.
+
+2006-09-28  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
+
 	* Monopod/monopod.in: 
 	
 	Fixes bug #8917 about searching binary in libdir.

@@ -4,13 +4,20 @@ monowrap_SCRIPTS = monopod
 entagged_dll = entagged-sharp.dll
 
 monopoddir = $(pkglibdir)
-monopod_SCRIPTS = Monopod.exe $(entagged_dll)
+monopod_SCRIPTS = \
+	Monopod.exe \
+	Monopod.exe.config \
+	$(entagged_dll)
 
 $(entagged_dll): $(top_builddir)/entagged-sharp/src/entagged-sharp.dll
 	cp $(top_builddir)/entagged-sharp/src/entagged-sharp.dll $(entagged_dll)
 
-EXTRA_DIST = $(monopod_sources) $(monopod_sources_in) \
-	     monopod.in $(monopod_resources)
+EXTRA_DIST = \
+	$(monopod_sources) \
+	$(monopod_sources_in) \
+	monopod.in \
+	Monopod.exe.config \
+	$(monopod_resources)
 
 CLEANFILES = Monopod.exe entagged-sharp.dll
 DISTCLEANFILES = Monopod $(monopod_generated_sources)
