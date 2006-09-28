@@ -1,3 +1,9 @@
+2006-09-28  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
+
+	* Monopod/monopod.in: 
+	
+	Fixes bug #8917 about searching binary in libdir.
+
 2006-09-03  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
 
 	* Monopod/Main.cs: 

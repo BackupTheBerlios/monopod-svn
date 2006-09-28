@@ -1,2 +1,7 @@
 #!/bin/sh
-exec @MONO@ @prefix@/lib/@PACKAGE@/Monopod.exe "$@"
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+
+exec @MONO@ @libdir@/@PACKAGE@/Monopod.exe "$@"
